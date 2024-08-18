@@ -4,8 +4,9 @@
 
 int main()
 {
-    SplitTool* tool;
+    SplitTool* tool = new SplitToolCppJieba();
+    //tool->getInstance();
     DicProducer dirc("../data/art",tool);
-    dirc.buildEnDict();
+    dirc.store();
     return 0;
 }

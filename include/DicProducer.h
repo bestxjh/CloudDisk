@@ -36,6 +36,9 @@ private:
     
     vector<pair<string,int>> _dictCn;
     map<string,set<int>> _indexCn;
+
+    map<string,bool> _stopEng;
+    map<string,bool> _stopCn;
     SplitTool* _cuttor;
 };
 

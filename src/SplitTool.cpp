@@ -4,6 +4,9 @@ cppjieba::Jieba* SplitTool::jieba = nullptr;
 
 SplitTool::~SplitTool()
 {
-    delete jieba;    
+    if(jieba != nullptr){
+        delete jieba;    
+        jieba=nullptr;
+    }
 }
 
