@@ -1,4 +1,4 @@
-#include "../include/SplitToolCppJieba.h"
+#include "SplitToolCppJieba.h"
 
 SplitToolCppJieba::SplitToolCppJieba(){
 

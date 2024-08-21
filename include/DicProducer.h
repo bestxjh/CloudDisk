@@ -42,4 +42,8 @@ private:
     SplitTool* _cuttor;
 };
 
+void pushCnYuLiao(const string dir,vector<string> &_files);
+void getStopCn(const string path,map<string,bool> &_stopCn);
+void getStopEng(const string path,map<string,bool> & _stopEng);
+int getUtf8ByteType(unsigned char c);
 #endif

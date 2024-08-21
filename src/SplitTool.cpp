@@ -1,4 +1,4 @@
-#include "../include/SplitTool.h"
+#include "SplitTool.h"
 
 cppjieba::Jieba* SplitTool::jieba = nullptr;
 

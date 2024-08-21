@@ -1,4 +1,4 @@
-#include "../include/DicProducer.h"
+#include "DicProducer.h"
 
 void pushCnYuLiao(const string dir,vector<string> &_files)
 {
