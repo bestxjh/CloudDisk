@@ -6,24 +6,35 @@
 #include <iostream>
 #include <string>
 #include <utility>
+#include <fstream>
 
 #include "DirScanner.h"
 #include "Configuration.h"
 #include "DirScanner.h"
 #include "FileProcessor.h"
-
+#include "tinyxml2.h"
+#include "WebPage.h"
+#include <regex>
+using std::ifstream;
+using namespace tinyxml2;
 using std::cout;
 using std::vector;
 using std::map;
 using std::string;
 using std::pair;
 
+/* struct RSSIteam */
+/* { */
+/*     int docid; */
+/*     string url; */
+/*     string title; */
+/*     string content; */
+/* }; */
+
 class PageLib
 {
 public:
-    PageLib(Configuration& conf,
-            DirScanner& dirScanner,
-            FileProcessor& fileProcessor);
+    PageLib(DirScanner& dirScanner);
     ~PageLib();
 
     void create();

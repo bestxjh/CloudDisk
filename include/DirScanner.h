@@ -5,6 +5,9 @@
 #include <vector>
 #include <string>
 #include <dirent.h>
+#include <sys/stat.h>
+#include <iostream>
+
 
 using std::vector;
 using std::string;
@@ -16,7 +19,6 @@ public:
     vector<string> getFiles();
     void traverse(const string &dirname);
     ~DirScanner();
-
 private:
     vector<string> _files;
 };

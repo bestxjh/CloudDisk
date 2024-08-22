@@ -17,7 +17,7 @@
 
 #all:bin/test
 
-all:bin/test bin/client
+all:bin/test bin/client bin/Pagetest
 
 #bin/Configuration.o: src/Configuration.cc
 #	g++ -g -c src/Configuration.cc -o bin/Configuration.o
@@ -72,7 +72,7 @@ bin/test.o:src/test.cc
 
 bin/test: bin/Dictionary.o bin/KeyRecommander.o bin/CandidateResult.o bin/Acceptor.o \
           bin/EchoServer.o bin/EventLoop.o bin/InetAddress.o bin/Socket.o bin/SocketIO.o \
-        bin/Configuration.o	bin/SearchEngineServer.o  bin/TaskQueue.o bin/TcpConnection.o bin/TcpServer.o bin/ThreadPool.o bin/test.o 
+       bin/Configuration.o	bin/SearchEngineServer.o  bin/TaskQueue.o bin/TcpConnection.o bin/TcpServer.o bin/ThreadPool.o bin/test.o 
 	
 	g++ -Wall -g  bin/Dictionary.o bin/KeyRecommander.o bin/CandidateResult.o bin/Acceptor.o \
           bin/EchoServer.o bin/EventLoop.o bin/InetAddress.o bin/Socket.o bin/SocketIO.o \
@@ -80,10 +80,25 @@ bin/test: bin/Dictionary.o bin/KeyRecommander.o bin/CandidateResult.o bin/Accept
 
 
 bin/client.o: test/client.cc
-	g++ -g -c test/client.cc -o bin/client.o
+	g++ -Wall -g -c test/client.cc -o bin/client.o
 
 bin/client: bin/client.o
 	g++ -g bin/client.o -o bin/client
+
+
+bin/DirScanner.o:src/DirScanner.cpp
+	g++ -Wall -g -c src/DirScanner.cpp -o bin/DirScanner.o
+
+bin/PageLib.o:src/PageLib.cpp
+	g++ -Wall -g -c src/PageLib.cpp -o bin/PageLib.o 
+
+bin/Pagetest.o:test/Pagetest.cc
+	g++ -Wall -g -c test/Pagetest.cc -o bin/Pagetest.o
+bin/WebPage.o:src/WebPage.cc
+	g++ -Wall -g -c src/WebPage.cc -o bin/WebPage.o
+
+bin/Pagetest:bin/Configuration.o bin/DirScanner.o bin/PageLib.o bin/Pagetest.o bin/WebPage.o
+	g++ -Wall -g bin/WebPage.o bin/Configuration.o bin/Pagetest.o bin/DirScanner.o bin/PageLib.o -o bin/Pagetest	-ltinyxml2
 
 clean:
 	rm -f bin/*.o bin/test
